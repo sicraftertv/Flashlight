@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Your base application theme. -->
+    <style name="Theme.Flashlight" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- Style for the transparent activity that hosts the Compose dialog -->
+    <style name="Theme.TransparentDialog" parent="android:Theme.Translucent.NoTitleBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+</resources>
