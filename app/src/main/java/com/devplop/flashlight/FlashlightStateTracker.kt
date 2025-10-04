@@ -12,7 +12,8 @@ import kotlinx.coroutines.flow.asStateFlow
 
 class FlashlightStateTracker(context: Context) {
     private val cameraManager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
-    private var cameraIdWithFlash: String? = null
+    var cameraIdWithFlash: String? = null
+        private set
 
     // Use a StateFlow to observe the flashlight state from your UI (e.g., Jetpack Compose)
     private val _isFlashlightOn = MutableStateFlow(false)

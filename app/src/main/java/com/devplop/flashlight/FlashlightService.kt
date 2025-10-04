@@ -9,13 +9,11 @@ import android.service.quicksettings.TileService
 
 
 class FlashlightService : TileService() {
-
     // Called when the user adds the tile to their Quick Settings.
     override fun onStartListening() {
         super.onStartListening()
         // Here you could check the flashlight's current state if you were persisting it.
         // For simplicity, we'll keep it inactive by default.
-
         qsTile?.state = updateTileState()
         qsTile?.updateTile()
     }
@@ -30,7 +28,7 @@ class FlashlightService : TileService() {
 
         vibrator.vibrate(vibrationEffect)
 
-        // Create an intent to launch our FlashlightActivity.
+        //Create an intent to launch our FlashlightActivity.
         val intent = Intent(this, FlashlightActivity::class.java).apply {
             // This flag is necessary to start an activity from a service context.
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -42,10 +40,11 @@ class FlashlightService : TileService() {
     }
 
     private fun updateTileState(): Int {
-        if(isEnabled){
+        if (isEnabled) {
             return Tile.STATE_ACTIVE
         }
         return Tile.STATE_INACTIVE
     }
+
 }
 
