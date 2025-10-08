@@ -34,9 +34,15 @@ class FlashlightService : TileService() {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+        if (!isLocked) {
+            val pendingIntent =
+                PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
-        startActivityAndCollapse(pendingIntent)
+            startActivityAndCollapse(pendingIntent)
+
+        } else {
+            startActivity(intent)
+        }
     }
 
     private fun updateTileState(): Int {
@@ -45,6 +51,5 @@ class FlashlightService : TileService() {
         }
         return Tile.STATE_INACTIVE
     }
-
 }
 

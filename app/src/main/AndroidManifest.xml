@@ -5,7 +5,9 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera.flash"
+
+    <uses-feature
+        android:name="android.hardware.camera.flash"
         android:required="false" />
     <uses-feature
         android:name="android.hardware.camera"
@@ -20,31 +22,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Flashlight">
-    <activity
-        android:name=".FlashlightActivity"
-        android:exported="true"
-        android:theme="@style/Theme.TransparentDialog"
-        tools:ignore="Instantiatable"
-        android:excludeFromRecents="true"
-        >
-<!--        <intent-filter>-->
-<!--            <action android:name="android.intent.action.MAIN" />-->
-<!--            <category android:name="android.intent.category.LAUNCHER" />-->
-<!--        </intent-filter>-->
-    </activity>
+        <activity
+            android:name=".FlashlightActivity"
+            android:exported="true"
+            android:theme="@style/Theme.TransparentDialog"
+            tools:ignore="Instantiatable"
+            android:excludeFromRecents="true">
+            <!--        <intent-filter>-->
+            <!--            <action android:name="android.intent.action.MAIN" />-->
+            <!--            <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--        </intent-filter>-->
+        </activity>
 
-    <!-- Service for the Quick Settings Tile -->
-    <service
-        android:name=".FlashlightService"
-        android:exported="true"
-        android:icon="@drawable/flashlight_on_24px"
-        android:label="@string/flashlight_tile_label"
-        android:subtitle="@string/flashlight_tile_subtitle"
-        android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-        <intent-filter>
-            <action android:name="android.service.quicksettings.action.QS_TILE" />
-        </intent-filter>
-    </service>
+        <!-- Service for the Quick Settings Tile -->
+        <service
+            android:name=".FlashlightService"
+            android:exported="true"
+            android:icon="@drawable/flashlight_on_24px"
+            android:label="@string/flashlight_tile_label"
+            android:subtitle="@string/flashlight_tile_subtitle"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <meta-data
+                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+                android:value="true" />
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
 
     </application>
 </manifest>
